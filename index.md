@@ -1,5 +1,7 @@
 ## Welcome to 我的测试H5小站点~
 
+[open](https://github.com/dingymm/h5/edit/master/index.html)
+
 You can use the [editor on GitHub](https://github.com/dingymm/h5/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
