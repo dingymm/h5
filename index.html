@@ -1,98 +1,320 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
-    <meta charset="UTF-8" />
-    <title>css��ҳ����</title>
-    <link rel="stylesheet" href="css/index.css">
+    <meta charset="UTF-8"/>
+   <!--  <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="author" content="ThemeStarz">
+    <title>TNP平台</title>
+
 </head>
-<body>
-<!--���嵽���֣����ң��ϵ���-->
-    <!--ͷ��-->
-    <div class="header">
-        <div class="logo">
-            <img src="img/logo.png" alt="logo">
+<style>
+body,html{
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.left{
+    width: 50%;
+    float: left;
+}
+.right{
+    width: 50%;
+    float: right;
+ /*   text-align: right;
+    padding-right: 10px;*/
+}
+.row{
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;  
+}
+.row_result{
+    height: 30px;
+    line-height: 30px;
+    background-color: #fff; 
+    color: #999;
+}
+.main{
+    background-color: #ebeeef;
+    width: 100%;
+    height: 100%; 
+    padding-top: 10px
+}
+.title_left{
+    padding-left: 10px;
+    color: #zzz;
+}
+.title_left_result{
+    color: #999;
+    padding-left: 10px;
+}
+.weight,.height,.BMI,.energyunit,.sugar,.nitro,.liquidunit{
+        text-align: right;
+    float: right;
+    height: 25px;
+    margin-top: 10px;
+    padding-right: 10px;
+    text-align: right;
+    float: right;
+}
+.title_result{
+    font-weight: normal;
+    font-size: 15px;
+    color: #818181;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding-top: 5px;
+    /*margin-bottom: 10px;*/
+    background-color: #fff;
+}
+.rightfull{
+    width: 100%;
+    padding-right: 10px;
+    text-align: right;
+}
+input{
+    border: 1px solid #fff!important;
+outline: none!important;
+    -webkit-appearance: none!important;
+    -webkit-appearance: none!important;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)!important;
+        text-align: right;
+    float: right;
+    padding-right: 10px;
+}
+button{
+    font-size: 15px;
+    width: 95%;
+    background-color: #BDBFBF;
+    color: #fff;
+    text-align: center;
+    padding: 13px 0;
+    margin: 45px 10px;
+    margin-bottom: auto;
+    border-radius: 7px;    
+}
+.result{
+    display: none;
+}
+</style>
+<body >
+<div class="main">
+    <div class="row">
+        <div class="left"><span class="title_left">体重(kg):</span></div>
+        <div class="right"><input class="weight" type="text" name="" placeholder="请输入体重" ></div>
+    </div>
+    <div class="row">
+        <div class="left"><span class="title_left">身高(cm):</span></div>
+        <div class="right"><input class="height" type="text" name="" placeholder="请输入身高" ></div>
+    </div>
+    <div class="row">
+        <div class="left"><span class="title_left">BMI:</span></div>
+        <div class="right"><input class="BMI" type="text" name=""></div>
+    </div>
+    <div class="row" style="line-height: 1.6">
+        <div class="left" style="width: 56%"><span class="title_left" style="display: inline-block;">热量需求(初始七日考虑能量8-10kcal/Kg,一周后达25-30kcal/Kg):</div>
+        <div class="right" style="width: 40%"><input class="energyunit" type="text" name="" placeholder="请输入热量需求"></div>
+    </div>
+    <div class="row">
+        <div class="left"><span class="title_left">糖脂比:</span></div>
+        <div class="right"><input style="float: left;width: 80%;" class="sugar" type="text" name="" placeholder="请输入糖脂比"><span style="float: right;padding-right: 10px">: 1</span></div>
+    </div>
+    <div class="row">
+        <div class="left"><span class="title_left">热氮比:</span></div>
+        <div class="right"><input style="float: left;width: 80%;" class="nitro" type="text" name="" placeholder="请输入热氮比"><span style="float: right;padding-right: 10px">: 1</span></div>
+    </div>
+    <div class="row">
+        <div class="left"><span class="title_left">计划液体量(ml/kg.d):</span></div>
+        <div class="right"><input class="liquidunit" type="text" name="" placeholder="计划液体量"></div>
+    </div>
+    <button class="button">计算结果</button>
+    <!-- 查询结果 -->
+    <div class="result" style="margin-top: 15px">
+        <div class="title_result" >TPN（肠外营养）配置方案</div>
+        <!-- 葡萄糖 -->
+        <div>
+            <div class="row_result" >
+                <div class="left"><span class="title_left_result" style="color: #000">葡萄糖:</span></div>
+            </div>
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">50%葡萄糖(ml):</span></div>
+                <div class="right"><span class="right sugarvolume1"></span></div>
+            </div>  
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">10%葡萄糖(ml):</span></div>
+                <div class="right"><span class="right sugarvolume2"></span></div>
+            </div>             
         </div>
-        <div class="nav">
-            <ul>
-                <li>�ּ�</li>
-                <li>��Ƶ</li>
-                <li>ͼƬ</li>
-                <li>��ҳ</li>
-            </ul>
+        <!-- 脂肪 -->
+        <div>
+            <div class="row_result" >
+                <div class="left"><span class="title_left_result" style="color: #000">脂肪:</span></div>
+            </div>
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">20%脂肪乳剂(ml):</span></div>
+                <div class="right"><span class="right fatvolume"></span></div>
+            </div>            
+        </div>
+        <!-- 氨基酸 -->
+        <div>
+            <div class="row_result" >
+                <div class="left"><span class="title_left_result" style="color: #000">氨基酸:</span></div>
+            </div>
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">目前蛋白(g/kg.d):</span></div>
+                <div class="right"><span class="right proteinunit"></span></div>
+            </div>  
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">参考类:</span></div>
+                <div class="right"><span class="right rightfull">非应急状态 0.8-1.0</span></div>
+            </div> 
+            <div class="row_result">
+                <div class="right"><span class="right rightfull">轻度应激 1.0-1.2</span></div>
+            </div> 
+            <div class="row_result">
+                <div class="right"><span class="right rightfull">中度应激 1.3-1.75</span></div>
+            </div> 
+            <div class="row_result">
+                <div class="right"><span class="right rightfull">重度应激 2.0-2.5</span></div>
+            </div> 
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">20%丙氨酰谷胺酰胺(力肽)(ml):</span></div>
+                <div class="right"><span class="right proteinvolume1"></span></div>
+            </div>  
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">5%金氨基酸(ml):</span></div>
+                <div class="right"><span class="right proteinvolume2"></span></div>
+            </div>                    
+        </div>
+        <!-- 其他 -->
+        <div>
+            <div class="row_result" >
+                <div class="left"><span class="title_left_result" style="color: #000">其他:</span></div>
+            </div>
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">10%氯化钠:</span></div>
+                <div class="right"><span class="right">20ml</span></div>
+            </div>  
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">10%氯化钾:</span></div>
+                <div class="right"><span class="right">20ml</span></div>
+            </div> 
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">10%葡酸钙:</span></div>
+                <div class="right"><span class="right">10ml</span></div>
+            </div>
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">25%硫酸镁:</span></div>
+                <div class="right"><span class="right">1.5ml</span></div>
+            </div>  
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">胰岛素:</span></div>
+                <div class="right"><span class="right insulinvolume"></span></div>
+            </div> 
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">组合维生素:</span></div>
+                <div class="right"><span class="right">一瓶</span></div>
+            </div> 
+            <div class="row_result">
+                <div class="left"><span class="title_left_result">微量元素(安达美):</span></div>
+                <div class="right"><span class="right">一支</span></div>
+            </div>             
         </div>
     </div>
-    <!--����-->
-    <div class="main">
-        <div class="top">
-            <img src="img/1.jpeg" alt="topimg">
-        </div>
-        <!--���ֲ�-->
-        <div class="topplayer"></div>
-        <!--���ϲ������-->
-        <div class="topplayer-top">
-            <div class="word">MY BEAUTIFUL LIFE</div>
-            <button>LOOK MORE &gt;</button>
-        </div>
-        <div class="middle">
-            <div class="m-top">
-                <div class="commen weibo">
-                    <img src="img/weibo.png" alt="weibologo">
-                    <div class="comm">MICROBLOG</div>
-                </div>
-                <div class="commen wechat">
-                    <img src="img/weixin.png" alt="weixinlogo">
-                    <div class="comm">WECHAT</div>
-                </div>
-                <div class="commen qq">
-                    <img src="img/QQ.png" alt="qqlogo">
-                    <div class="comm">QQ</div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="m-middle">
-                "I want to give good things to record down,<br>after the recall will be very beautiful."
-            </div>
-            <div class="m-bottom">
-                <div class="m-com">
-                    <img src="img/03-01.jpg" alt="03-01.jpg">
-                    <div class="des1">Cool Image</div>
-                    <div class="des2">Record The Picture</div>
-                </div>
-                <div class="m-com">
-                    <img src="img/03-02.jpg" alt="03-02.jpg">
-                    <div class="des1">Great Picture</div>
-                    <div class="des2">Record The Picture</div>
-                </div>
-                <div class="m-com">
-                    <img src="img/03-03.jpg" alt="03-03.jpg">
-                    <div class="des1">Cool Image</div>
-                    <div class="des2">Record The Picture</div>
-                </div>
-            </div>
-        </div>
-        <div class="clear"></div>
-        <div class="bottom">
-            <div class="b-title">FROM THE PHOTO ALBUM</div>
-            <div class="pic-content">
-                <dl>
-                    <dt><img src="img/04-01.jpg" alt="04-01"></dt>
-                    <dd class="word">
-                        Life is like a book, just read more and more refined, more write more carefully. When read, mind open, all things have been indifferent to heart. Life is the precipitation.
-                    </dd>
-                </dl>
-                <dl>
-                    <dt><img src="img/04-02.jpg" alt="04-01"></dt>
-                    <dd class="word">
-                        Life is like a book, just read more and more refined, more write more carefully. When read, mind open, all things have been indifferent to heart. Life is the precipitation.
-                    </dd>
-                </dl>
-            </div>
-        </div>
-    </div>
-    <div class="clear"></div>
-    <!--�ײ�-->
-    <div class="footer">
-        &copy 2016 imooc.com  ��ICP��13046642��
-    </div>
+</div>
+
+
 </body>
-</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>    
+$(".weight").on("input propertychange",function(){
+    if($(".height").val()!=0){
+        var weight=Number($(this).val())
+        var height=Number($(".height").val())
+        console.log(weight)
+        console.log(height)
+        BMI=Number(weight/(height*height))*10000
+        BMI=BMI.toFixed(2);
+        $(".BMI").val(BMI)       
+    }
+
+})    
+$(".height").on("input propertychange",function(){
+    if($(".weight").val()!=0){
+        var weight=Number($(".weight").val())
+        var height=Number($(this).val())
+        console.log(weight)
+        console.log(height)
+        BMI=Number(weight/(height*height))*10000
+        BMI=BMI.toFixed(2);
+        $(".BMI").val(BMI) 
+    }       
+})
+$(".button").click(function(){
+    $(".result").css("display","block")
+    //var sugarvolume1=(sugartotal-liquidunit+proteinvolume1+proteinvolume2+fatvolume)/4
+    //以下为第一项sugartotal的求得方法 
+    var weight=Number($(".weight").val());
+    var energyunit=Number($(".energyunit").val());
+    var sugar=Number($(".sugar").val()); 
+    console.log(weight)
+    console.log(energyunit)
+    console.log(sugar)
+    energytotal=energyunit*weight;
+    var fenmu=(1+sugar)*sugar;
+    var fenmu1=(1+sugar) 
+    energysugar=energytotal/fenmu; 
+    energyfat=energytotal/fenmu1;   
+    sugartotal=energysugar/4;
+    console.log(sugartotal) 
+    //以下为第二项liquidunit的求得方法
+    var liquidunit=Number($(".liquidunit").val())
+    //以下为第三项proteinvolume1第四项proteinvolume2的求得方法
+    var nitro=Number($(".nitro").val());
+    protein=energytotal*6.25/nitro;
+    proteinunit=protein/weight  
+    if(protein<=2){
+        proteinvolume1=0.3*weight*5;
+        proteinvolume2=(proteinunit-0.3)*weight*20;    
+    }else{
+        proteinvolume1=0.4*weight*5;
+        proteinvolume2=(proteinunit-0.4)*weight*20;
+    }
+    //以下为第五项fatvolume的求得方法
+    fattotal=energyfat/9
+    fatvolume=fattotal*5
+    //综合计算
+    var fenzi=sugartotal-liquidunit+proteinvolume1+proteinvolume2+fatvolume
+    var sugarvolume1=fenzi/4
+    console.log(sugarvolume1+"哈哈")
+
+    $(".sugarvolume1").html(sugarvolume1.toFixed(2))
+
+    sugarvolume2=5*liquidunit/4-5*proteinvolume1-5*proteinvolume2-5*fatvolume-sugartotal/4;
+
+    insulinvolume=sugartotal/4;
+    $(".sugarvolume2").html(sugarvolume2.toFixed(2))
+
+    $(".fatvolume").html(fatvolume.toFixed(2))
+
+    $(".proteinunit").html(proteinunit.toFixed(2))
+
+    $(".proteinvolume1").html(proteinvolume1.toFixed(2))
+
+    $(".proteinvolume2").html(proteinvolume2.toFixed(2))
+
+    $(".insulinvolume").html(insulinvolume.toFixed(2))
+    
+
+
+})
+
+</script>
+<html/>
